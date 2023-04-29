@@ -1,4 +1,4 @@
-import { Box, CardMedia, useTheme } from '@mui/material';
+import { CardMedia, useTheme } from '@mui/material';
 
 export default function Home() {
   const theme = useTheme();

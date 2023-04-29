@@ -1,4 +1,3 @@
-import { Toolbar } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './pages/About';
