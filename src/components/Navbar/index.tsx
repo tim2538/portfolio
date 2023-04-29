@@ -35,8 +35,14 @@ export default function Navbar() {
       sx={{
         borderBottomLeftRadius: { xs: open ? 16 : 0, sm: 0 },
         borderBottomRightRadius: { xs: open ? 16 : 0, sm: 0 },
-        backgroundColor: open ? 'background.paper' : 'transparent',
-        boxShadow: open ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none',
+        backgroundColor: {
+          xs: open ? 'background.paper' : 'transparent',
+          sm: 'transparent'
+        },
+        boxShadow: {
+          xs: open ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none',
+          sm: 'none'
+        },
         transition:
           'border-radius 0.15s ease-in-out, background-color 0.15s ease-out, box-shadow 0.5s ease-out'
       }}
@@ -53,18 +59,6 @@ export default function Navbar() {
             WELCOME
           </Typography>
           <Box flexGrow={1} />
-          <Tooltip
-            title={
-              mode === 'light' ? 'Turn off the light' : 'Turn on the light'
-            }
-          >
-            <IconButton
-              onClick={() => toggleColorMode()}
-              sx={{ color: 'inherit', ml: 0.5 }}
-            >
-              {mode === 'light' ? <DarkModeOutlined /> : <LightModeRounded />}
-            </IconButton>
-          </Tooltip>
           <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
             {MENUS.map(({ name, to }) => (
               <Button
@@ -86,6 +80,18 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
+          <Tooltip
+            title={
+              mode === 'light' ? 'Turn off the light' : 'Turn on the light'
+            }
+          >
+            <IconButton
+              onClick={() => toggleColorMode()}
+              sx={{ color: 'inherit', ml: 0.5 }}
+            >
+              {mode === 'light' ? <DarkModeOutlined /> : <LightModeRounded />}
+            </IconButton>
+          </Tooltip>
           <IconButton
             onClick={handleMenu}
             sx={{ display: { xs: 'flex', sm: 'none' }, ml: 0.5 }}
