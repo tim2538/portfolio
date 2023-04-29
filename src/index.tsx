@@ -76,10 +76,12 @@ function AppWithTheme() {
           mode,
           ...(mode === 'light'
             ? {
-                primary: { main: '#d9a84e' }
+                primary: { main: '#5899e3' },
+                background: { default: '#fafafa', paper: '#fefefe' }
               }
             : {
-                primary: { main: '#f2d5a0' }
+                primary: { main: '#f2d5a0' },
+                background: { default: '#0f0d0a' }
               })
         },
         components: {

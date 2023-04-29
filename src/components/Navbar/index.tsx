@@ -32,16 +32,17 @@ export default function Navbar() {
   return (
     <AppBar
       color="transparent"
-      elevation={0}
       sx={{
-        py: 1,
-        transition: 'border-radius 0.15s ease-in-out',
-        borderBottomLeftRadius: { xs: open ? 16 : 0, md: 0 },
-        borderBottomRightRadius: { xs: open ? 16 : 0, md: 0 }
+        borderBottomLeftRadius: { xs: open ? 16 : 0, sm: 0 },
+        borderBottomRightRadius: { xs: open ? 16 : 0, sm: 0 },
+        backgroundColor: open ? 'background.paper' : 'transparent',
+        boxShadow: open ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none',
+        transition:
+          'border-radius 0.15s ease-in-out, background-color 0.15s ease-out, box-shadow 0.5s ease-out'
       }}
     >
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ my: 1 }}>
           <Typography
             component={RRLink}
             to="/"
