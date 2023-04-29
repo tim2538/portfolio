@@ -117,7 +117,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio">
       <AppWithTheme />
     </BrowserRouter>
   </React.StrictMode>
