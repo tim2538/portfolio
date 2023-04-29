@@ -9,7 +9,6 @@ export default function App() {
   return (
     <div>
       <Navbar />
-      <Toolbar sx={{ my: 1 }} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
