@@ -11,7 +11,9 @@ import {
   MenuList,
   Toolbar,
   Tooltip,
-  Typography
+  Typography,
+  alpha,
+  useScrollTrigger
 } from '@mui/material';
 import { useContext, useState } from 'react';
 import { Link as RRLink, useLocation } from 'react-router-dom';
@@ -21,6 +23,10 @@ import Hamburger from '../Hamburger';
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 64
+  });
   const { mode, toggleColorMode } = useContext(ColorModeContext);
 
   const [open, setOpen] = useState<boolean>(false);
@@ -32,20 +38,26 @@ export default function Navbar() {
   return (
     <AppBar
       color="transparent"
-      sx={{
+      sx={(theme) => ({
         borderBottomLeftRadius: { xs: open ? 16 : 0, sm: 0 },
         borderBottomRightRadius: { xs: open ? 16 : 0, sm: 0 },
         backgroundColor: {
-          xs: open ? 'background.paper' : 'transparent',
-          sm: 'transparent'
+          xs:
+            open || trigger
+              ? alpha(theme.palette.background.paper, 0.5)
+              : 'transparent',
+          sm: trigger
+            ? alpha(theme.palette.background.paper, 0.5)
+            : 'transparent'
         },
         boxShadow: {
-          xs: open ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none',
-          sm: 'none'
+          xs: open || trigger ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none',
+          sm: trigger ? '0px 3px 10px rgba(0, 0, 0, 0.15)' : 'none'
         },
+        backdropFilter: 'blur(8px)',
         transition:
-          'border-radius 0.15s ease-in-out, background-color 0.15s ease-out, box-shadow 0.5s ease-out'
-      }}
+          'border-radius 0.15s ease-in-out, background-color 0.5s ease-out, box-shadow 0.5s ease-out'
+      })}
     >
       <Container>
         <Toolbar disableGutters sx={{ my: 1 }}>

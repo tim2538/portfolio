@@ -1,10 +1,13 @@
-import { Box } from '@mui/material';
+import { Container } from '@mui/material';
+import AnimatedBox from '../../components/AnimatedBox';
 import Title from '../../components/Title';
 
 export default function About() {
   return (
-    <Box>
-      <Title text="About" />
-    </Box>
+    <Container>
+      <AnimatedBox>
+        <Title text="About" />
+      </AnimatedBox>
+    </Container>
   );
 }
