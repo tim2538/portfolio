@@ -19,7 +19,7 @@ import { useContext, useState } from 'react';
 import { Link as RRLink, useLocation } from 'react-router-dom';
 import { ColorModeContext } from '../..';
 import { MENUS } from '../../common/constants/menus';
-import { HamburgerV2 } from '../Hamburger';
+import { HamburgerV3 } from '../Hamburger';
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -109,7 +109,7 @@ export default function Navbar() {
               onClick={handleMenu}
               sx={{ display: { xs: 'flex', sm: 'none' }, ml: 0.5 }}
             >
-              <HamburgerV2 open={open} />
+              <HamburgerV3 open={open} />
             </IconButton>
           </Toolbar>
           <Collapse sx={{ display: { xs: 'block', sm: 'none' } }} in={open}>
