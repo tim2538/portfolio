@@ -6,13 +6,16 @@ import {
   Collapse,
   Container,
   Divider,
+  Drawer,
   IconButton,
   MenuItem,
   MenuList,
+  Theme,
   Toolbar,
   Tooltip,
   Typography,
   alpha,
+  useMediaQuery,
   useScrollTrigger
 } from '@mui/material';
 import { useContext, useState } from 'react';
@@ -27,12 +30,24 @@ export default function Navbar() {
     disableHysteresis: true,
     threshold: 64
   });
+  const isSmUpScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.up('sm')
+  );
   const { mode, toggleColorMode } = useContext(ColorModeContext);
 
   const [open, setOpen] = useState<boolean>(false);
 
-  function handleMenu() {
-    setOpen(!open);
+  function handleMenu(open: boolean) {
+    return (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
+      setOpen(open);
+    };
   }
 
   return (
@@ -45,7 +60,7 @@ export default function Navbar() {
           backgroundColor: {
             xs:
               open || trigger
-                ? alpha(theme.palette.background.paper, 0.5)
+                ? alpha(theme.palette.background.paper, open ? 1 : 0.5)
                 : 'transparent',
             sm: trigger
               ? alpha(theme.palette.background.paper, 0.5)
@@ -68,6 +83,7 @@ export default function Navbar() {
               variant="h5"
               color="inherit"
               sx={{ textDecoration: 'none' }}
+              onClick={handleMenu(false)}
             >
               {pathname === '/' ? 'WELCOME' : 'tim2538'}
             </Typography>
@@ -106,7 +122,7 @@ export default function Navbar() {
               </IconButton>
             </Tooltip>
             <IconButton
-              onClick={handleMenu}
+              onClick={handleMenu(!open)}
               sx={{ display: { xs: 'flex', sm: 'none' }, ml: 0.5 }}
             >
               <HamburgerV3 open={open} />
@@ -122,7 +138,7 @@ export default function Navbar() {
                       key={name}
                       component={RRLink}
                       to={to}
-                      onClick={handleMenu}
+                      onClick={handleMenu(false)}
                       disableRipple
                       sx={{
                         mx: -2,
@@ -147,17 +163,14 @@ export default function Navbar() {
           </Collapse>
         </Container>
       </AppBar>
-      <Box
-        onClick={handleMenu}
-        sx={(theme) => ({
-          width: '100%',
-          height: '100vh',
-          position: 'fixed',
-          zIndex: theme.zIndex.appBar - 1,
-          display: { xs: open ? 'block' : 'none', sm: 'none' },
-          backgroundColor: 'background.paper',
-          opacity: 0.5
-        })}
+      <Drawer
+        anchor="top"
+        open={open && !isSmUpScreen}
+        onClose={handleMenu(false)}
+        sx={{
+          zIndex: (theme) => theme.zIndex.appBar - 1,
+          display: { xs: 'block', sm: 'none' }
+        }}
       />
     </>
   );
