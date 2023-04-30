@@ -77,10 +77,12 @@ function AppWithTheme() {
           ...(mode === 'light'
             ? {
                 primary: { main: '#5899e3' },
+                success: { main: '#42b72a' },
                 background: { default: '#fafafa', paper: '#fefefe' }
               }
             : {
                 primary: { main: '#f2d5a0' },
+                success: { main: '#42b72a' },
                 background: { default: '#0f0d0a' }
               })
         },

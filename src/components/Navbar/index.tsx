@@ -1,4 +1,9 @@
-import { DarkModeOutlined, LightModeRounded } from '@mui/icons-material';
+import {
+  DarkModeOutlined,
+  DoneRounded,
+  LightModeRounded,
+  LinkRounded
+} from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -36,6 +41,7 @@ export default function Navbar() {
   const { mode, toggleColorMode } = useContext(ColorModeContext);
 
   const [open, setOpen] = useState<boolean>(false);
+  const [successCopied, setSuccessCopied] = useState<boolean>(false);
 
   function handleMenu(open: boolean) {
     return (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -48,6 +54,14 @@ export default function Navbar() {
       }
       setOpen(open);
     };
+  }
+
+  function handleCopyLink() {
+    setSuccessCopied(true);
+    navigator.clipboard.writeText(window.location.href);
+    setTimeout(() => {
+      setSuccessCopied(false);
+    }, 2000);
   }
 
   return (
@@ -119,6 +133,20 @@ export default function Navbar() {
                 sx={{ color: 'inherit', ml: 0.5 }}
               >
                 {mode === 'light' ? <DarkModeOutlined /> : <LightModeRounded />}
+              </IconButton>
+            </Tooltip>
+            <Tooltip
+              title={successCopied ? 'Copied!' : 'Copy link to this page'}
+            >
+              <IconButton
+                onClick={handleCopyLink}
+                sx={{ color: 'inherit', ml: 0.5 }}
+              >
+                {successCopied ? (
+                  <DoneRounded color="success" />
+                ) : (
+                  <LinkRounded sx={{ rotate: '-45deg' }} />
+                )}
               </IconButton>
             </Tooltip>
             <IconButton
