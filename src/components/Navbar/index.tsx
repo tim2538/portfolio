@@ -68,7 +68,7 @@ export default function Navbar() {
             color="inherit"
             sx={{ textDecoration: 'none' }}
           >
-            WELCOME
+            {pathname === '/' ? 'WELCOME' : 'tim2538'}
           </Typography>
           <Box flexGrow={1} />
           <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
