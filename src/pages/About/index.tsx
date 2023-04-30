@@ -1,4 +1,8 @@
-import { FmdGoodOutlined, ScheduleRounded } from '@mui/icons-material';
+import {
+  ArrowRightRounded,
+  FmdGoodOutlined,
+  ScheduleRounded
+} from '@mui/icons-material';
 import {
   Box,
   Card,
@@ -15,7 +19,8 @@ import Topic from '../../components/Topic';
 interface Item {
   title: string;
   location?: string;
-  time: string;
+  start: string;
+  end?: string;
 }
 
 export default function About() {
@@ -30,41 +35,46 @@ export default function About() {
     {
       title: 'Freelance Photographer',
       location: 'TimPhoto',
-      time: 'JUNE 01, 2013 → TODAY'
+      start: 'June 01, 2013',
+      end: 'Present'
     },
     {
       title: 'Solution Architect Engineer',
       location: 'REPCO, SCG Chemicals',
-      time: 'MARCH 01, 2020 → TODAY'
+      start: 'March 01, 2020',
+      end: 'Present'
     },
     {
       title: 'Mechanical Design Engineer',
       location: 'REPCO, SCG Chemicals',
-      time: 'JULY 01, 2017 → February 29, 2020'
+      start: 'July 01, 2017',
+      end: 'February 29, 2020'
     }
   ];
   const educations: Item[] = [
     {
       title: 'Chulalongkorn University',
       location: 'Bachelor’s Degree',
-      time: 'JUNE 01, 2013 → MAY 31, 2017'
+      start: 'June 01, 2013',
+      end: 'May 31, 2017'
     },
     {
       title: 'Triam Udom Suksa School',
       location: 'High School',
-      time: 'JUNE 01, 2010 → MAY 31, 2013'
+      start: 'June 01, 2010',
+      end: 'May 31, 2013'
     }
   ];
   const awards: Item[] = [
     {
       title: 'Winner in "STRONG" Topic',
       location: 'Together Contest, SGCU Camera',
-      time: '2017'
+      start: '2017'
     },
     {
       title: 'Second Runner-up in "MACRO" Topic',
       location: 'YAI Camp, CU Photo Club',
-      time: '2014'
+      start: '2014'
     }
   ];
 
@@ -88,15 +98,32 @@ export default function About() {
                 </Box>
               )}
               <Box
-                sx={{ mt: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}
+                sx={{
+                  mt: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: 0.25
+                }}
               >
                 <ScheduleRounded
                   color="primary"
-                  sx={{ width: 16, height: 16 }}
+                  sx={{ width: 16, height: 16, mr: 0.25 }}
                 />
                 <Typography color="primary.main" sx={{ fontSize: 12 }}>
-                  {item.time}
+                  {item.start}
                 </Typography>
+                {item.end && (
+                  <ArrowRightRounded
+                    color="primary"
+                    sx={{ width: 16, height: 16 }}
+                  />
+                )}
+                {item.end && (
+                  <Typography color="primary.main" sx={{ fontSize: 12 }}>
+                    {item.end}
+                  </Typography>
+                )}
               </Box>
             </AnimatedBox>
           </Grid>
