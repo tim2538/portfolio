@@ -1,3 +1,4 @@
+import { CodeOutlined, PhotoCameraOutlined } from '@mui/icons-material';
 import {
   Box,
   CardMedia,
@@ -7,7 +8,6 @@ import {
   useTheme
 } from '@mui/material';
 import AnimatedBox from '../../components/AnimatedBox';
-import { DarkModeRounded, LightModeRounded } from '@mui/icons-material';
 
 export default function Home() {
   const theme = useTheme();
@@ -43,7 +43,7 @@ export default function Home() {
               alignItems: 'center'
             }}
           >
-            <LightModeRounded
+            <CodeOutlined
               sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
             />
             <Typography
@@ -65,7 +65,7 @@ export default function Home() {
               mt: 0.5
             }}
           >
-            <DarkModeRounded
+            <PhotoCameraOutlined
               sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
             />
             <Typography
