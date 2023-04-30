@@ -92,6 +92,13 @@ function AppWithTheme() {
                 textTransform: 'none'
               }
             }
+          },
+          MuiCard: {
+            styleOverrides: {
+              root: {
+                borderRadius: '16px'
+              }
+            }
           }
         }
       }),
