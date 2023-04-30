@@ -3,15 +3,7 @@ import {
   FmdGoodOutlined,
   ScheduleRounded
 } from '@mui/icons-material';
-import {
-  Box,
-  Card,
-  CardMedia,
-  Container,
-  Divider,
-  Grid,
-  Typography
-} from '@mui/material';
+import { Box, Card, Container, Divider, Grid, Typography } from '@mui/material';
 import AnimatedBox from '../../components/AnimatedBox';
 import Title from '../../components/Title';
 import Topic from '../../components/Topic';
@@ -138,13 +130,17 @@ export default function About() {
         <Title text="About" />
       </AnimatedBox>
       <AnimatedBox direction="left">
-        <Card>
-          <CardMedia
-            sx={{
-              height: { xs: 240, sm: 320, md: 400 },
-              bgcolor: 'background.paper'
-            }}
-          />
+        <Card
+          elevation={0}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: { xs: 240, sm: 320, md: 400 },
+            bgcolor: (theme) =>
+              theme.palette.mode === 'light' ? '#dddddd' : '#222222'
+          }}
+        >
+          <img src={require('../../assets/Me.png')} alt="Me" />
         </Card>
       </AnimatedBox>
       <Box p={3}>
