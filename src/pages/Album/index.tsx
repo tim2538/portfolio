@@ -52,6 +52,12 @@ export default function Album() {
       >
         {items.map((item, index) => {
           const isHorizontalImage = item.width >= item.height;
+          const width = isHorizontalImage
+            ? maxWidthHeight
+            : (item.width / item.height) * maxWidthHeight;
+          const height = isHorizontalImage
+            ? (item.height / item.width) * maxWidthHeight
+            : maxWidthHeight;
 
           return (
             <Grid
@@ -83,12 +89,8 @@ export default function Album() {
                     boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.3)',
                     bgcolor: (theme) =>
                       theme.palette.mode === 'light' ? '#dddddd' : '#222222',
-                    width: isHorizontalImage
-                      ? maxWidthHeight
-                      : (item.width / item.height) * maxWidthHeight,
-                    height: isHorizontalImage
-                      ? (item.height / item.width) * maxWidthHeight
-                      : maxWidthHeight
+                    width,
+                    height
                   }}
                 />
                 <Box mt={5} sx={{ display: 'flex', flexDirection: 'column' }}>
