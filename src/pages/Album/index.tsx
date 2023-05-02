@@ -66,7 +66,9 @@ export default function Album() {
               }}
             >
               <AnimatedBox
-                direction={index % 2 === 0 ? 'left' : 'right'}
+                direction={
+                  isSmUpScreen ? (index % 2 === 0 ? 'left' : 'right') : 'bottom'
+                }
                 sx={{
                   textAlign: 'center'
                 }}
@@ -79,6 +81,8 @@ export default function Album() {
                   sx={{
                     borderRadius: 1,
                     boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.3)',
+                    bgcolor: (theme) =>
+                      theme.palette.mode === 'light' ? '#dddddd' : '#222222',
                     width: isHorizontalImage
                       ? maxWidthHeight
                       : (item.width / item.height) * maxWidthHeight,
