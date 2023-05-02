@@ -1,16 +1,26 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.55c47fe8.css",
-    "main.js": "/portfolio/static/js/main.c6f9600c.js",
+    "main.css": "/portfolio/static/css/main.f4305b68.css",
+    "main.js": "/portfolio/static/js/main.f3612489.js",
+    "static/media/event.jpeg": "/portfolio/static/media/event.3a9d7a0037e15d37c94a.jpeg",
+    "static/media/landscape.jpeg": "/portfolio/static/media/landscape.e5667454d168396a523d.jpeg",
+    "static/media/cityscape.jpeg": "/portfolio/static/media/cityscape.f3f92317455e4992c89e.jpeg",
+    "static/media/graduation.jpeg": "/portfolio/static/media/graduation.2a5436d1307e68d41ca9.jpeg",
+    "static/media/people.jpeg": "/portfolio/static/media/people.1ad1d1fdaf55fa9b2115.jpeg",
+    "static/media/pre-wedding.jpeg": "/portfolio/static/media/pre-wedding.33d71689f0cfed5f5fb1.jpeg",
+    "static/media/black-and-white.jpeg": "/portfolio/static/media/black-and-white.37b4f4e1b5dbc2254cda.jpeg",
+    "static/media/frame-in-frame.jpeg": "/portfolio/static/media/frame-in-frame.eab41d1db3874db2f4fe.jpeg",
+    "static/media/downsizing.jpeg": "/portfolio/static/media/downsizing.2a54da03e19a455de2d6.jpeg",
+    "static/media/packshot.jpeg": "/portfolio/static/media/packshot.1cb2443becdd0cb276c7.jpeg",
     "static/media/Me.png": "/portfolio/static/media/Me.2a5cc745bc16d4800135.png",
     "static/media/WebCover_light.jpeg": "/portfolio/static/media/WebCover_light.19369165ecb84e2ca799.jpeg",
     "static/media/WebCover_dark.jpeg": "/portfolio/static/media/WebCover_dark.1e0c882cbf8e8a486537.jpeg",
     "index.html": "/portfolio/index.html",
-    "main.55c47fe8.css.map": "/portfolio/static/css/main.55c47fe8.css.map",
-    "main.c6f9600c.js.map": "/portfolio/static/js/main.c6f9600c.js.map"
+    "main.f4305b68.css.map": "/portfolio/static/css/main.f4305b68.css.map",
+    "main.f3612489.js.map": "/portfolio/static/js/main.f3612489.js.map"
   },
   "entrypoints": [
-    "static/css/main.55c47fe8.css",
-    "static/js/main.c6f9600c.js"
+    "static/css/main.f4305b68.css",
+    "static/js/main.f3612489.js"
   ]
 }
