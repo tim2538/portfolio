@@ -43,7 +43,11 @@ export default function Navbar() {
   const [open, setOpen] = useState<boolean>(false);
   const [successCopied, setSuccessCopied] = useState<boolean>(false);
 
-  function handleMenu(open: boolean) {
+  function handleMenu(
+    open: boolean,
+    toTop?: boolean,
+    behavior?: ScrollBehavior
+  ) {
     return (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === 'keydown' &&
@@ -53,6 +57,7 @@ export default function Navbar() {
         return;
       }
       setOpen(open);
+      if (toTop) handleScrollToTop(behavior);
     };
   }
 
@@ -62,6 +67,10 @@ export default function Navbar() {
     setTimeout(() => {
       setSuccessCopied(false);
     }, 2000);
+  }
+
+  function handleScrollToTop(behavior?: ScrollBehavior) {
+    window['scrollTo']({ top: 0, behavior });
   }
 
   return (
@@ -97,7 +106,11 @@ export default function Navbar() {
               variant="h5"
               color="inherit"
               sx={{ textDecoration: 'none' }}
-              onClick={handleMenu(false)}
+              onClick={handleMenu(
+                false,
+                true,
+                pathname === '/' ? 'smooth' : undefined
+              )}
             >
               {pathname === '/' ? 'WELCOME' : 'tim2538'}
             </Typography>
@@ -118,6 +131,9 @@ export default function Navbar() {
                       color: 'primary.main'
                     }
                   }}
+                  onClick={() =>
+                    handleScrollToTop(pathname === to ? 'smooth' : undefined)
+                  }
                 >
                   {name}
                 </Button>
@@ -166,7 +182,11 @@ export default function Navbar() {
                       key={name}
                       component={RRLink}
                       to={to}
-                      onClick={handleMenu(false)}
+                      onClick={handleMenu(
+                        false,
+                        true,
+                        pathname === to ? 'smooth' : undefined
+                      )}
                       disableRipple
                       sx={{
                         mx: -2,
