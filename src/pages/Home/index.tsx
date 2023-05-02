@@ -43,28 +43,6 @@ export default function Home() {
               alignItems: 'center'
             }}
           >
-            <CodeOutlined
-              sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
-            />
-            <Typography
-              sx={{
-                fontSize: { xs: 10, sm: 16 },
-                textTransform: 'uppercase',
-                letterSpacing: { xs: 10.25, sm: 16.5 },
-                ml: { xs: 1.5, sm: 1 }
-              }}
-            >
-              Developer
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: { xs: 'center', sm: 'flex-start' },
-              alignItems: 'center',
-              mt: 0.5
-            }}
-          >
             <PhotoCameraOutlined
               sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
             />
@@ -73,11 +51,14 @@ export default function Home() {
                 fontSize: { xs: 10, sm: 16 },
                 textTransform: 'uppercase',
                 letterSpacing: { xs: 10, sm: 16 },
-                ml: { xs: 1.5, sm: 1 }
+                ml: { xs: 1.25, sm: 1.5 }
               }}
             >
-              Photographer
+              Photo&Dev
             </Typography>
+            <CodeOutlined
+              sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
+            />
           </Box>
         </AnimatedBox>
       </Container>
