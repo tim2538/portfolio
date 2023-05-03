@@ -1,5 +1,12 @@
-import { ChevronLeftRounded, HomeRounded } from '@mui/icons-material';
-import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { HomeRounded, KeyboardArrowLeftRounded } from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  Container,
+  Stack,
+  Typography,
+  alpha
+} from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import AnimatedBox from '../../components/AnimatedBox';
 
@@ -33,13 +40,13 @@ export default function Error() {
           fontSize: { xs: 625, sm: 725, md: 800 },
           fontWeight: 'bold',
           letterSpacing: -25,
-          zIndex: -1,
+          zIndex: -10,
           opacity: 0.05
         }}
       >
         {errorCode}
       </Typography>
-      <AnimatedBox direction="left">
+      <AnimatedBox>
         <Typography
           color="primary"
           sx={{
@@ -68,9 +75,30 @@ export default function Error() {
           size="large"
           color="inherit"
           disableElevation
-          startIcon={<ChevronLeftRounded />}
+          startIcon={
+            <KeyboardArrowLeftRounded sx={{ color: 'primary.dark' }} />
+          }
           onClick={() => navigate(-1)}
-          sx={{ minWidth: 125 }}
+          sx={{
+            minWidth: 150,
+            color: 'primary.dark',
+            position: 'relative',
+            '::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'background.paper',
+              borderRadius: '48px',
+              zIndex: -1
+            },
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.2),
+            '&:hover, &.Mui-focusVisible': {
+              bgcolor: (theme) => alpha(theme.palette.primary.main, 0.4)
+            }
+          }}
         >
           Go Back
         </Button>
@@ -80,7 +108,7 @@ export default function Error() {
           disableElevation
           startIcon={<HomeRounded />}
           onClick={() => navigate('/')}
-          sx={{ minWidth: 125 }}
+          sx={{ minWidth: 150 }}
         >
           Home
         </Button>
