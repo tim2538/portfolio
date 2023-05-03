@@ -76,7 +76,7 @@ function AppWithTheme() {
           mode,
           ...(mode === 'light'
             ? {
-                primary: { main: '#5899e3' },
+                primary: { main: '#5899e3', contrastText: '#fafafa' },
                 success: { main: '#42b72a' },
                 background: { default: '#fafafa', paper: '#fefefe' }
               }
