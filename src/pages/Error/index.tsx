@@ -1,14 +1,8 @@
 import { HomeRounded, KeyboardArrowLeftRounded } from '@mui/icons-material';
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-  Typography,
-  alpha
-} from '@mui/material';
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import AnimatedBox from '../../components/AnimatedBox';
+import SoftButton from '../../components/SoftButton';
 
 export default function Error() {
   const navigate = useNavigate();
@@ -70,38 +64,15 @@ export default function Error() {
         justifyContent="center"
         sx={{ mt: 3 }}
       >
-        <Button
-          variant="contained"
+        <SoftButton
           size="large"
-          color="inherit"
           disableElevation
-          startIcon={
-            <KeyboardArrowLeftRounded sx={{ color: 'primary.dark' }} />
-          }
+          startIcon={<KeyboardArrowLeftRounded />}
           onClick={() => navigate(-1)}
-          sx={{
-            minWidth: 150,
-            color: 'primary.dark',
-            position: 'relative',
-            '::before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'background.paper',
-              borderRadius: '48px',
-              zIndex: -1
-            },
-            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.2),
-            '&:hover, &.Mui-focusVisible': {
-              bgcolor: (theme) => alpha(theme.palette.primary.main, 0.4)
-            }
-          }}
+          sx={{ minWidth: 150 }}
         >
           Go Back
-        </Button>
+        </SoftButton>
         <Button
           variant="contained"
           size="large"
