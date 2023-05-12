@@ -29,7 +29,10 @@ export default function SoftButton(props: React.ComponentProps<typeof Button>) {
       color="inherit"
       sx={{
         ...sx,
-        color: selectedColor.dark,
+        color:
+          theme.palette.mode === 'light'
+            ? selectedColor.dark
+            : selectedColor.light,
         position: 'relative',
         '::before': {
           content: '""',
