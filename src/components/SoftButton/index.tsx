@@ -15,7 +15,7 @@ export default function SoftButton(props: React.ComponentProps<typeof Button>) {
   // Set border-radius of Button
   let { borderRadius } = theme.components?.MuiButton?.styleOverrides
     ?.root as StyledButtonProps;
-  if ((sx as StyledButtonProps).borderRadius)
+  if ((sx as StyledButtonProps)?.borderRadius)
     borderRadius = (sx as StyledButtonProps).borderRadius;
   if (typeof borderRadius === 'number')
     borderRadius = `${
