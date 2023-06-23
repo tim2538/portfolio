@@ -90,7 +90,12 @@ export default function Album() {
                     bgcolor: (theme) =>
                       theme.palette.mode === 'light' ? '#dddddd' : '#222222',
                     width,
-                    height
+                    height,
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                    '&:hover, &.Mui-focusVisible': {
+                      boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.3)',
+                      transform: 'scale(1.1)'
+                    }
                   }}
                 />
                 <Box mt={5} sx={{ display: 'flex', flexDirection: 'column' }}>

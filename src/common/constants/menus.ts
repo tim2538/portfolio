@@ -1,6 +1,7 @@
 export const MENUS = [
   { name: 'Home', to: '/' },
-  { name: 'Design', to: '/design' },
   { name: 'Album', to: '/album' },
+  { name: 'Book', to: '/book' },
+  { name: 'Design', to: '/design' },
   { name: 'About', to: '/about' }
 ];

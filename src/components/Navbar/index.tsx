@@ -165,12 +165,14 @@ export default function Navbar() {
                 )}
               </IconButton>
             </Tooltip>
-            <IconButton
-              onClick={handleMenu(!open)}
-              sx={{ display: { xs: 'flex', sm: 'none' }, ml: 0.5 }}
-            >
-              <HamburgerV3 open={open} />
-            </IconButton>
+            <Tooltip title={open ? 'Close menu' : 'Open menu'}>
+              <IconButton
+                onClick={handleMenu(!open)}
+                sx={{ display: { xs: 'flex', sm: 'none' }, ml: 0.5 }}
+              >
+                <HamburgerV3 open={open} />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
           <Collapse sx={{ display: { xs: 'block', sm: 'none' } }} in={open}>
             <Divider />

@@ -43,22 +43,14 @@ export default function Home() {
               alignItems: 'center'
             }}
           >
-            <PhotoCameraOutlined
-              sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
-            />
             <Typography
               sx={{
-                fontSize: { xs: 10, sm: 16 },
-                textTransform: 'uppercase',
-                letterSpacing: { xs: 10, sm: 16 },
+                fontSize: { xs: 16, sm: 24 },
                 ml: { xs: 1.25, sm: 1.5 }
               }}
             >
-              Photo&Dev
+              tim2538's portfolio
             </Typography>
-            <CodeOutlined
-              sx={{ width: { xs: 12, sm: 16 }, height: { xs: 12, sm: 16 } }}
-            />
           </Box>
         </AnimatedBox>
       </Container>
