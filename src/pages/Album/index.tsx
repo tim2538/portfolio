@@ -14,6 +14,7 @@ import { COPYRIGHT } from '../../common/constants';
 import { ALBUMS } from '../../common/constants/albums';
 import AnimatedBox from '../../components/AnimatedBox';
 import Title from '../../components/Title';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 interface Item {
   id: number;
@@ -25,6 +26,7 @@ interface Item {
 }
 
 export default function Album() {
+  const width = useScreenWidth();
   const isSmUpScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.up('sm')
   );
@@ -39,7 +41,7 @@ export default function Album() {
     if (isLgUpScreen) return 500;
     if (isMdUpScreen) return 400;
     if (isSmUpScreen) return 500;
-    return 400;
+    return Math.min(width / 1.2, 400);
   })();
 
   function GridLayout(items: Item[]) {
@@ -85,6 +87,7 @@ export default function Album() {
                   image={require(`../../assets/album/main/${item.filename}`)}
                   title={item.name}
                   sx={{
+                    mx: 'auto',
                     borderRadius: 1,
                     boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.3)',
                     bgcolor: (theme) =>

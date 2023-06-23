@@ -1,4 +1,3 @@
-import { CodeOutlined, PhotoCameraOutlined } from '@mui/icons-material';
 import {
   Box,
   CardMedia,
