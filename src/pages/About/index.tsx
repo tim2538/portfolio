@@ -31,10 +31,16 @@ export default function About() {
       end: 'Present'
     },
     {
+      title: 'Business Incubation Engineer',
+      location: 'REPCO, SCG Chemicals',
+      start: 'April 01, 2025',
+      end: 'Present'
+    },
+    {
       title: 'Solution Architect Engineer',
       location: 'REPCO, SCG Chemicals',
       start: 'March 01, 2020',
-      end: 'Present'
+      end: 'March 31, 2025'
     },
     {
       title: 'Mechanical Design Engineer',
